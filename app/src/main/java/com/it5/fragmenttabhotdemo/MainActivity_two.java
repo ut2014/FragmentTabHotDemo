@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.it5.fragmenttabhotdemo.fragment.Fragment1;
 import com.it5.fragmenttabhotdemo.fragment.Fragment2;
@@ -14,7 +16,11 @@ import com.it5.fragmenttabhotdemo.fragment.Fragment3;
 import com.it5.fragmenttabhotdemo.fragment.Fragment4;
 import com.it5.fragmenttabhotdemo.fragment.Fragment5;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * fragmenttab 例子，
+ * 主要是 给tabhost设置背景
+ */
+public class MainActivity_Two extends AppCompatActivity {
     private FragmentTabHost tabHost;
     //布局填充器
     private LayoutInflater layoutInflater;
@@ -44,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_one);
+        setContentView(R.layout.activity_two_1);
         initView();
     }
 
@@ -71,13 +77,20 @@ public class MainActivity extends AppCompatActivity {
 /*            tabHost.getTabWidget().getChildAt(i)
                     .setBackgroundResource(android.R.color.background_dark);*/
             tabHost.getTabWidget().getChildAt(i)
-                    .setBackgroundResource(R.drawable.btn_color_selector);
+                    .setBackgroundResource(R.drawable.btn_color_1_selector);
 
             tabHost.getTabWidget().getChildAt(i).setPadding(0,5,0,5);
         }
 
         //设置当前tab
         tabHost.setCurrentTab(2);
+
+        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String tabId) {
+                Toast.makeText(MainActivity_Two.this,tabId,Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /**
@@ -90,7 +103,9 @@ public class MainActivity extends AppCompatActivity {
         imageView.setImageResource(mImageArray[index]);
         TextView textView = (TextView) view.findViewById(R.id.textview);
         textView.setText(mTextArray[index]);
-        textView.setBackgroundResource(R.drawable.btn_color_selector);
+//        textView.setBackgroundResource(R.drawable.btn_color_selector);
         return view;
     }
+
+
 }
