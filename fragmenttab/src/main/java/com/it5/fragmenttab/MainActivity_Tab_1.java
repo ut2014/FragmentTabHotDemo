@@ -2,6 +2,7 @@ package com.it5.fragmenttab;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.RadioGroup;
 
@@ -49,42 +50,62 @@ public class MainActivity_Tab_1 extends AppCompatActivity implements RadioGroup.
         }
     }
 
+    private int currentTab;
+
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         if (checkedId == R.id.shop) {
-            change(SHOP_TAG);
+            change(SHOP_TAG, checkedId);
         } else if (checkedId == R.id.category) {
-            change(CATEGORY_TAG);
-        }else if (checkedId == R.id.index) {
-            change(INDEX_TAG);
-        }else if (checkedId == R.id.me) {
-            change(ME_TAG);
-        }else if (checkedId == R.id.more) {
-            change(MORE_TAG);
+            change(CATEGORY_TAG, checkedId);
+        } else if (checkedId == R.id.index) {
+            change(INDEX_TAG, checkedId);
+        } else if (checkedId == R.id.me) {
+            change(ME_TAG, checkedId);
+        } else if (checkedId == R.id.more) {
+            change(MORE_TAG, checkedId);
         }
+        currentTab = checkedId;
     }
 
     //切换 fragment
-    private void change(String nowTag) {
-        if (nowTag!=mLastFragmentTag) {
-            Fragment lastFragment=getSupportFragmentManager().findFragmentByTag(mLastFragmentTag);
-            Fragment nowFragment=getSupportFragmentManager().findFragmentByTag(nowTag);
-            if (nowFragment!=null) {
-                getSupportFragmentManager().beginTransaction()
+    private void change(String nowTag, int checkedId) {
+        if (nowTag != mLastFragmentTag) {
+            Fragment lastFragment = getSupportFragmentManager().findFragmentByTag(mLastFragmentTag);
+            Fragment nowFragment = getSupportFragmentManager().findFragmentByTag(nowTag);
+            if (nowFragment != null) {
+                obtainFragmentTransaction(checkedId)
                         .show(nowFragment)
                         .hide(lastFragment)
                         .commit();
-            }else {
-                Fragment fragment=IndexFragment.newInstance(nowTag);
-                getSupportFragmentManager().beginTransaction()
-                        .add(R.id.fragment_container,fragment,nowTag)
+            } else {
+                Fragment fragment = IndexFragment.newInstance(nowTag);
+//                getSupportFragmentManager().beginTransaction()
+                obtainFragmentTransaction(checkedId)
+                        .add(R.id.fragment_container, fragment, nowTag)
                         .addToBackStack(null)
                         .hide(lastFragment)
                         .commit();
             }
-            mLastFragmentTag=nowTag;
+            mLastFragmentTag = nowTag;
         }
     }
 
 
+    /**
+     * 获取一个带动画的FragmentTransaction
+     *
+     * @param index
+     * @return
+     */
+    private FragmentTransaction obtainFragmentTransaction(int index) {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        // 设置切换动画
+        if (index > currentTab) {
+            ft.setCustomAnimations(R.anim.slide_left_in, R.anim.slide_left_out);
+        } else {
+            ft.setCustomAnimations(R.anim.slide_right_in, R.anim.slide_right_out);
+        }
+        return ft;
+    }
 }
