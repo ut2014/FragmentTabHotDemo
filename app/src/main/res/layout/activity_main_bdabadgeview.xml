@@ -1,19 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    style="@style/MatchAuto.Vertical">
-        <!--<android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerview"
-            style="@style/MatchMatch"
-            android:layout_marginTop="5dp"
-            android:scrollbars="none" />-->
+    style="@style/MatchMatch.Vertical">
+    <LinearLayout style="@style/MatchMatch.Vertical">
+        <LinearLayout style="@style/MatchAuto.Vertical"
+            android:visibility="visible"
+            >
+            <RelativeLayout
+                style="@style/MatchWrap"
+                android:padding="10dp">
+                <cn.bingoogolapple.badgeview.BGABadgeView
+                    android:id="@+id/bv_main_test"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="5dp" />
+            </RelativeLayout>
+
+            <cn.bingoogolapple.badgeview.BGABadgeTextView
+                android:id="@+id/btv_main_test"
+                style="@style/MatchWrap"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:text="BGABadgeTextView"
+                android:textColor="@android:color/black"
+                app:badge_dragable="true"
+                app:badge_padding="5dp" />
+
+            <cn.bingoogolapple.badgeview.BGABadgeLinearLayout
+                android:id="@+id/bll_main_test"
+                style="@style/MatchWrap.Horizontal"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                app:badge_dragable="true">
+
+                <cn.bingoogolapple.badgeview.BGABadgeImageView
+                    android:id="@+id/biv_main_normal"
+                    style="@style/WrapWrap"
+                    android:padding="5dp"
+                    android:src="@mipmap/avator" />
+
+                <cn.bingoogolapple.badgeview.BGABadgeImageView
+                    android:id="@+id/biv_main_rounded"
+                    style="@style/WrapWrap"
+                    android:layout_margin="3dp"
+                    android:padding="7dp"
+                    app:badge_bgColor="@color/colorPrimary"
+                    app:badge_dragable="true"
+                    app:badge_gravity="rightBottom"
+                    app:badge_horizontalMargin="0dp"
+                    app:badge_verticalMargin="0dp" />
+
+                <cn.bingoogolapple.badgeview.BGABadgeImageView
+                    android:id="@+id/biv_main_circle"
+                    style="@style/WrapWrap"
+                    android:padding="7dp"
+                    app:badge_dragable="true"
+                    app:badge_gravity="rightBottom"
+                    app:badge_horizontalMargin="0dp"
+                    app:badge_verticalMargin="0dp" />
+
+                <TextView
+                    style="@style/WrapWrap"
+                    android:text="BadgeLinearLayout" />
+
+            </cn.bingoogolapple.badgeview.BGABadgeLinearLayout>
+
+            <cn.bingoogolapple.badgeview.BGABadgeRelativeLayout
+                android:id="@+id/brl_main_test"
+                style="@style/MatchWrap"
+                android:padding="5dp"
+                app:badge_dragable="true"
+                app:badge_padding="7dp">
+
+                <TextView
+                    style="@style/WrapWrap"
+                    android:text="测试BRL" />
+
+                <TextView
+                    style="@style/WrapWrap"
+                    android:layout_centerInParent="true"
+                    android:text="测试BGABadgeRelativeLayout" />
+
+            </cn.bingoogolapple.badgeview.BGABadgeRelativeLayout>
+
+            <cn.bingoogolapple.badgeview.BGABadgeFrameLayout
+                android:id="@+id/bfl_main_test"
+                style="@style/MatchWrap"
+                android:padding="5dp"
+                app:badge_borderColor="#00ff00"
+                app:badge_borderWidth="2dp"
+                app:badge_padding="7dp">
+
+                <TextView
+                    style="@style/WrapWrap"
+                    android:text="测试BFL" />
+
+                <TextView
+                    style="@style/WrapWrap"
+                    android:layout_marginLeft="100dp"
+                    android:text="测试BGABadgeFrameLayout" />
+
+            </cn.bingoogolapple.badgeview.BGABadgeFrameLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                style="@style/MatchMatch"
+                android:layout_marginTop="5dp"
+                android:scrollbars="none" />
+        </LinearLayout>
 
         <RadioGroup
             android:id="@+id/rg_main_tab"
             style="@style/MatchWrap.Horizontal"
             android:background="@drawable/layer_maintab_bg"
             android:gravity="center_vertical">
+
             <cn.bingoogolapple.badgeview.BGABadgeRadioButton
                 android:id="@+id/brb_main_home"
                 style="@style/RbMainTab"
@@ -23,6 +126,7 @@
                 app:badge_dragable="true"
                 app:badge_isResumeTravel="true"
                 app:badge_padding="6dp" />
+
             <cn.bingoogolapple.badgeview.BGABadgeRadioButton
                 android:id="@+id/brb_main_message"
                 style="@style/RbMainTab"
@@ -59,4 +163,5 @@
                 app:badge_horizontalMargin="10dp"
                 app:badge_verticalMargin="10dp" />
         </RadioGroup>
+    </LinearLayout>
 </LinearLayout>
