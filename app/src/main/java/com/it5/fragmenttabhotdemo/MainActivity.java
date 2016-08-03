@@ -34,8 +34,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void tab_host_viewpager(View view){
+        Toast.makeText(this,"tab_group_Two",Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this,MainActivity_TabHost_ViewPager.class));
+    }
+
     public void tab_bgabadgerview(View view){
         Toast.makeText(this,"tab_group_Two",Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this,MainActivity_BGABadgeView.class));
     }
+
 }

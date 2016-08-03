@@ -35,6 +35,12 @@
         android:onClick="tab_group_Two"
         />
     <Button
+        android:text="FragmentTab_host_viewpager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="tab_host_viewpager"
+        />
+    <Button
         android:text="FragmentTab_bgabadgerview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

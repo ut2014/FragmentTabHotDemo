@@ -18,6 +18,7 @@
         <activity android:name=".MainActivity_One"/>
         <activity android:name=".MainActivity_Two"/>
         <activity android:name=".MainActivity_BGABadgeView"/>
+        <activity android:name=".MainActivity_TabHost_ViewPager"/>
     </application>
 
 </manifest>
