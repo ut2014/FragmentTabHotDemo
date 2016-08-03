@@ -34,5 +34,11 @@
         android:layout_height="wrap_content"
         android:onClick="tab_group_Two"
         />
+    <Button
+        android:text="FragmentTab_bgabadgerview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="tab_bgabadgerview"
+        />
 
 </LinearLayout>

@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".MainActivity_One"/>
         <activity android:name=".MainActivity_Two"/>
+        <activity android:name=".MainActivity_BGABadgeView"/>
     </application>
 
 </manifest>

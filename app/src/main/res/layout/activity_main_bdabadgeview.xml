@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MatchAuto.Vertical">
+        <!--<android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            style="@style/MatchMatch"
+            android:layout_marginTop="5dp"
+            android:scrollbars="none" />-->
+
+        <RadioGroup
+            android:id="@+id/rg_main_tab"
+            style="@style/MatchWrap.Horizontal"
+            android:background="@drawable/layer_maintab_bg"
+            android:gravity="center_vertical">
+            <cn.bingoogolapple.badgeview.BGABadgeRadioButton
+                android:id="@+id/brb_main_home"
+                style="@style/RbMainTab"
+                android:checked="true"
+                android:drawableTop="@drawable/selector_tab_home"
+                android:text="首页"
+                app:badge_dragable="true"
+                app:badge_isResumeTravel="true"
+                app:badge_padding="6dp" />
+            <cn.bingoogolapple.badgeview.BGABadgeRadioButton
+                android:id="@+id/brb_main_message"
+                style="@style/RbMainTab"
+                android:drawableTop="@drawable/selector_tab_message"
+                android:text="消息"
+                app:badge_gravity="rightTop"
+                app:badge_horizontalMargin="15dp"
+                app:badge_padding="3dp"
+                app:badge_verticalMargin="10dp" />
+
+            <ImageButton
+                android:id="@+id/ib_main_plus"
+                style="@style/AutoMatch"
+                android:background="@drawable/selector_tab_plusbg"
+                android:src="@drawable/selector_tab_plus" />
+
+            <cn.bingoogolapple.badgeview.BGABadgeRadioButton
+                android:id="@+id/brb_main_discover"
+                style="@style/RbMainTab"
+                android:drawableTop="@drawable/selector_tab_discover"
+                android:text="发现"
+                app:badge_bgColor="#FD8225"
+                app:badge_horizontalMargin="20dp"
+                app:badge_padding="5dp"
+                app:badge_textColor="@android:color/white"
+                app:badge_textSize="15sp" />
+
+            <cn.bingoogolapple.badgeview.BGABadgeRadioButton
+                android:id="@+id/brb_main_me"
+                style="@style/RbMainTab"
+                android:drawableTop="@drawable/selector_tab_me"
+                android:text="我"
+                app:badge_gravity="rightBottom"
+                app:badge_horizontalMargin="10dp"
+                app:badge_verticalMargin="10dp" />
+        </RadioGroup>
+</LinearLayout>

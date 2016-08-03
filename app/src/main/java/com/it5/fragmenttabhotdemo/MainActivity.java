@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.it5.fragmenttab.MainActivity_TabHost_adp;
 import com.it5.fragmenttab.MainActivity_Tab_1;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,5 +30,12 @@ public class MainActivity extends AppCompatActivity {
     }
     public void tab_group_Two(View view){
         Toast.makeText(this,"tab_group_Two",Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this,MainActivity_TabHost_adp.class));
+
+    }
+
+    public void tab_bgabadgerview(View view){
+        Toast.makeText(this,"tab_group_Two",Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this,MainActivity_BGABadgeView.class));
     }
 }
